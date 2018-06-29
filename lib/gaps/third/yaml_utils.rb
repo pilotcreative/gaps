@@ -59,9 +59,11 @@ module Gaps::Third
           end
         end
 
-        # Force the default engine back to Psych, since we require'd
-        # Syck.
-        YAML::ENGINE.yamler = 'psych'
+        if defined?(Syck)
+          # Force the default engine back to Psych, since we require'd
+          # Syck.
+          YAML::ENGINE.yamler = 'psych'
+        end
       end
     end
 
